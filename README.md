@@ -39,7 +39,7 @@ Do poprawnego działania aplikacji wymagane jest wiele rzeczy, poniżej przedsta
 | Norbert Zawierucha | CEO, Programista |
 
 # **Dodanie aplikacji na swój serwer discord**
-Aby dodać naszą aplikację do swojego serwera discord, wystarczy, że [klikniesz tutaj](https://discord.com/oauth2/authorize?client_id=1064617399560699985&permissions=4398046511103&scope=bot%20applications.commands) - przeniesiemy Cię na stronę oficjalną discord'a. Wystarczy wybrać swój serwer discord z rozwijanej listy i kliknąć niebieski przycisk `kontynuuj`, następnie zjechać na dół strony i potwierdzić kolejnym niebieskim przyciskiem `Autoryzuj`. Strona poprosi Cię o weryfikację czy jesteś człowiekiem. To tyle, już teraz zacznij konfiguracje na swoim serwerze.
+Aby dodać naszą aplikację do swojego serwera discord, wystarczy, że [klikniesz tutaj](https://discord.com/oauth2/authorize?client_id=1064617399560699985&permissions=4398046511103&scope=bot%20applications.commands) - przeniesiemy Cię na stronę oficjalną discord'a. Wystarczy wybrać swój serwer discord z rozwijanej listy i kliknąć niebieski przycisk `Kontynuuj`, następnie zjechać na dół strony i potwierdzić kolejnym niebieskim przyciskiem `Autoryzuj`. Strona poprosi Cię o weryfikację czy jesteś człowiekiem. To tyle, już teraz zacznij konfiguracje na swoim serwerze.
 
 ![Image](docs-imgs/invite-1.png)
 
@@ -50,7 +50,7 @@ Wszystkie dostępne komendy wraz z ich opisem i wzorem użycia są możliwe do s
 
 ## Komenda - */utwórz alert-`platforma` `nazwa` `kanał`*
 ---
-Utwórz nowy alert o rozpoczęciu stream'a na twitch.tv. Przy użyciu zmiennej `platforma` wybieramy interesującą nas platformę z proponowanych przez aplikację (np. twitch). Przy użyciu zmiennej `nazwa` podaj nazwę kanału twitch.tv, do którego mają być wysyłane alerty. Natomiast przy użyciu zmiennej `kanał` wybierz kanał tekstowy, na który mają być wysyłane alerty. W przypadku zmiennej `kanał` wyświetli się nam lista z dostępnymi kanałami tekstowymi do wybrania. 
+Utwórz nowy alert o nowej aktywności na wybranej platformie. Przy użyciu zmiennej `platforma` wybieramy interesującą nas platformę z proponowanych przez aplikację (np. twitch). Przy użyciu zmiennej `nazwa` podaj nazwę kanału (np. twitch.tv), do którego mają być wysyłane alerty. Natomiast przy użyciu zmiennej `kanał` wybierz kanał tekstowy, na który mają być wysyłane alerty. W przypadku zmiennej `kanał` wyświetli się nam lista z dostępnymi kanałami tekstowymi do wybrania. 
 
 ![Image](docs-imgs/commands-alert-twitch-1.png)
 
@@ -60,26 +60,26 @@ Przykładowe użycie:
 
 ![Image](docs-imgs/commands-alert-twitch-3.png)
 
-Po wysłaniu komendy bot po chwili zwróci informację o pobranych informacjach z API discord'a oraz twitch.tv - główne zdjęcie kanału twitch, nawa kanału twitch, id kanau twitch oraz oznaczony kanał tekstowy discord. Przykładowy wygląd informacji zwrotnej:
+Po wysłaniu komendy bot po chwili zwróci informację o pobranych informacjach z odpowiedniego API. Przykładowy wygląd informacji zwrotnej:
 
 ![Image](docs-imgs/commands-alert-twitch-4.png)
 
 Za pomocą trzech przycisków możemy kolejno:
-- `Tak, zapisz!` - potwierdzić zgodność danych i zapisać alert. Od tego momentu bot gdy wykryje nową aktywność (sprawdza średnio co minutę) na podanym kanale twitch wyświetli odpowiednią informiację na podanym kanale tekstowym z informacjami (m.in. nazwa oraz zdjęcie kanału twitch, tytuł oraz miniaturka transmisji na żywo). Aplikaja zwróci informację, przykładowa poniżej.
+- `Tak, zapisz!` - potwierdzić zgodność danych i zapisać alert. Od tego momentu bot gdy wykryje nową aktywność (sprawdza średnio co minutę) na podanym kanale (np. twitch) wyświetli odpowiednią informiację na podanym kanale tekstowym. Aplikaja zwróci informację, przykładowa poniżej.
 
 ![Image](docs-imgs/commands-alert-twitch-7.png)
 
-- `Nie, anuluj!` - anulować cały proces i zapisywanie alertu. Bot nie zapisze podanych informacji oraz nie wyświetli alertu w przypadku nowej aktywnośći na kanale twitch. Aplikaja zwróci informację, przykładowa poniżej.
+- `Nie, anuluj!` - anulować cały proces i zapisywanie alertu. Bot nie zapisze podanych informacji oraz nie wyświetli alertu w przypadku nowej aktywnośći na kanale (np. twitch). Aplikaja zwróci informację, przykładowa poniżej.
 
 ![Image](docs-imgs/commands-cancel.png)
 
-- `Sprawdź - przejdź do twitch.tv` - Otworzyć link w przeglądarce z pobranym przez aplikację kanałem twitch. Bot ani nie anuluje, ani nie zapisze podanych informacji, będzie czekał (15 sekund) na użycie jednego z powyższych przycisków. Aplikacja przeniesie do domyślnej przeglądarki i otworzy link do kanału twitch.
+- `Sprawdź - przejdź do ...` - Otworzyć link w przeglądarce z pobranym przez aplikację kanałem (np. twitch). Bot ani nie anuluje, ani nie zapisze podanych informacji, będzie czekał (15 sekund) na użycie jednego z powyższych przycisków. Aplikacja przeniesie do domyślnej przeglądarki i otworzy link do kanału twitch.
 
-- W przypadku przekroczenia czasu oczekiwania na informację zwrotną od użytkownika (15 sekund), bot anuluje cały proces i zapisywanie alertu -  nie zapisze podanych informacji oraz nie wyświetli alertu w przypadku nowej aktywnośći na kanale twitch. Aplikaja zwróci informację, przykładowa poniżej.
+- W przypadku przekroczenia czasu oczekiwania na informację zwrotną od użytkownika (15 sekund), bot anuluje cały proces i zapisywanie alertu -  nie zapisze podanych informacji oraz nie wyświetli alertu w przypadku nowej aktywności na kanale (np. twitch). Aplikaja zwróci informację, przykładowa poniżej.
 
 ![Image](docs-imgs/commands-error-nochoice.png)
 
-- W momencie wykrycia nowej aktywności na kanale twitch aplikacja pobierze wymagane dane z bazy danych oraz API twitch i wyświetli komunikat z najważniejszymi informacjami (m.in. nazwa oraz zdjęcie kanału twitch, tytuł oraz miniaturka transmisji na żywo). Przykładowy wygląd alertu:
+- W momencie wykrycia nowej aktywności na kanale (np. twitch) aplikacja pobierze wymagane dane z bazy danych oraz API platformy i wyświetli komunikat z najważniejszymi informacjami (w przypadku twitch.tv: nazwa oraz zdjęcie kanału twitch, tytuł oraz miniaturka transmisji na żywo). Przykładowy wygląd alertu:
 
 ![Image](docs-imgs/commands-alert-twitch-9.png)
 
@@ -108,17 +108,17 @@ Po wysłaniu komendy bot utworzy nowy kanał głosowy i po chwili zwróci inform
 ![Image](docs-imgs/commands-stats-twitch-5.png)
 
 Za pomocą trzech przycisków możemy kolejno:
-- `Tak, zapisz!` - potwierdzić zgodność danych i zapisać alert. Od tego momentu bot będzie aktualizował statystyki na utworzonym kanale (średnio co 5 minut).
+- `Tak, zapisz!` - potwierdzić zgodność danych i zapisać statystkę. Od tego momentu bot będzie aktualizował statystyki na utworzonym kanale (średnio co 5 minut).
 
 ![Image](docs-imgs/commands-stats-twitch-6.png)
 
-- `Nie, anuluj!` - anulować cały proces i zapisywanie alertu. Bot nie zapisze podanych informacji oraz nie wyświetli alertu w przypadku nowej aktywnośći na kanale twitch. Aplikaja zwróci informację, przykładowa poniżej.
+- `Nie, anuluj!` - anulować cały proces i zapisywanie statystyki. Bot nie zapisze podanych informacji oraz usunie utworzony kanał głosowy. Aplikaja zwróci informację, przykładowa poniżej.
 
 ![Image](docs-imgs/commands-cancel.png)
 
-- `Sprawdź - przejść do platformy` - Otworzyć link w przeglądarce z pobranym przez aplikację kanałem. Bot ani nie anuluje, ani nie zapisze podanych informacji, będzie czekał (15 sekund) na użycie jednego z powyższych przycisków. Aplikacja przeniesie do domyślnej przeglądarki i otworzy link do kanału twitch.
+- `Sprawdź - przejdź do ...` - Otworzyć link w przeglądarce z pobranym przez aplikację kanałem (np. twitch). Bot ani nie anuluje, ani nie zapisze podanych informacji, będzie czekał (15 sekund) na użycie jednego z powyższych przycisków. Aplikacja przeniesie do domyślnej przeglądarki i otworzy link do kanału twitch.
 
-- W przypadku przekroczenia czasu oczekiwania na informację zwrotną od użytkownika (15 sekund), bot anuluje cały proces i zapisywanie alertu -  nie zapisze podanych informacji oraz nie wyświetli alertu w przypadku nowej aktywnośći na kanale twitch. Aplikaja zwróci informację, przykładowa poniżej.
+- W przypadku przekroczenia czasu oczekiwania na informację zwrotną od użytkownika (15 sekund), bot anuluje cały proces i zapisywanie statystyki -  nie zapisze podanych informacji oraz usunie utworzony kanał głosowy. Aplikaja zwróci informację, przykładowa poniżej.
 
 ![Image](docs-imgs/commands-error-nochoice.png)
 
